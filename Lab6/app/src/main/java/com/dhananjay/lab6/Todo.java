@@ -2,6 +2,7 @@ package com.dhananjay.lab6;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
@@ -36,6 +37,11 @@ public class Todo {
         this.isDone = isDone;
         todoId = UUID.randomUUID().toString();
         createdTime = System.currentTimeMillis();
+    }
+
+    @Ignore
+    public void toggleComplete(){
+        isDone = !isDone;
     }
 
 }
