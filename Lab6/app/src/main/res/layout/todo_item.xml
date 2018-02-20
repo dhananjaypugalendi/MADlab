@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="match_parent" >
+    <RadioButton
+        android:id="@+id/todoCompleted"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_weight="3"
+        android:id="@+id/todoTask"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Task" />
+    <TextView
+        android:layout_weight="5"
+        android:id="@+id/todoCreated"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="123456" />
+</LinearLayout>
