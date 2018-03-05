@@ -26,9 +26,6 @@ public class Todo {
     @ColumnInfo(name = "is_done")
     boolean isDone;
 
-    @ColumnInfo(name = "completed_time")
-    long completedTime;
-
     @ColumnInfo(name = "created_time")
     long createdTime;
 

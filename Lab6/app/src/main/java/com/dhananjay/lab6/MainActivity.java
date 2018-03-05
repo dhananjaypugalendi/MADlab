@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ListView listView;
     Button button;
     EditText editText;
-
+    SqliteDatabaseAdapter sqliteDatabaseAdapter;
     String TAG = "main";
 
     @Override
@@ -35,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         editText = findViewById(R.id.addTodo);
         listView = findViewById(R.id.todoList);
 
+        //sqliteDatabaseAdapter = new SqliteDatabaseAdapter(this);
         todoDao = TodoDatabase
                 .getInstance(getApplicationContext()).getTodoDao();
 
@@ -94,6 +94,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 super.onPostExecute(todos);
             }
         }.execute();
+        /*todoList.clear();
+        todoList.addAll(sqliteDatabaseAdapter.getAllData());
+        adapter.notifyDataSetChanged();*/
+
     }
 
     public void insertTodo(final Todo todo){
@@ -114,6 +118,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         }.execute();
         Toast.makeText(this,"inserted",Toast.LENGTH_SHORT);
+        /*sqliteDatabaseAdapter.insertData(todo);
+        todoList.clear();
+        todoList.addAll(sqliteDatabaseAdapter.getAllData());
+        adapter.notifyDataSetChanged();*/
 
     }
 
@@ -134,7 +142,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 super.onPostExecute(todos);
             }
         }.execute();
-        Toast.makeText(this,"deleted",Toast.LENGTH_SHORT);
+        /*Toast.makeText(this,"deleted",Toast.LENGTH_SHORT);
+        sqliteDatabaseAdapter.deleteData(todo);
+        todoList.clear();
+        todoList.addAll(sqliteDatabaseAdapter.getAllData());
+        adapter.notifyDataSetChanged();*/
     }
 
     public void updateTodo(final Todo todo){
@@ -155,7 +167,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 super.onPostExecute(todos);
             }
         }.execute();
-        Toast.makeText(this,"deleted",Toast.LENGTH_SHORT);
+        /*Toast.makeText(this,"deleted",Toast.LENGTH_SHORT);
+        sqliteDatabaseAdapter.updateData(todo);
+        todoList.clear();
+        todoList.addAll(sqliteDatabaseAdapter.getAllData());
+        adapter.notifyDataSetChanged();*/
     }
 
 }
